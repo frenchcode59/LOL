@@ -11,19 +11,22 @@
 </head>
 
 <body>
-
-    <body>
-        <section id="hero">
-            <img id="hero_lol" src="/images/banniere.jpg" alt="photo_lol">
-            <button id="start_quizz">Demarrer le quizz</button>
-        </section>
-        <div class="container">
-            <div id="grid"></div>
-            <div id="champion_stats"></div> <!-- Ajout de la div pour afficher les stats des champions -->
-        </div>
-        <script src="/app.js"></script>
-    </body>
-
+    <section id="hero">
+        <img id="hero_lol" src="/images/banniere.jpg" alt="photo_lol">
+        <button id="start_quizz">Demarrer le quizz</button>
+    </section>
+    <div id="search">
+        <select name="filtre" id="filter">
+            <option value="normal">None</option>
+        </select>
+        <label for="searchBar"></label>
+        <input type="text" id="searchBar" placeholder="recherchez votre champion...">
+    </div>
+    <div class="container">
+        <div id="grid"></div>
+        <div id="pagination"></div>
+        <div id="champion_stats"></div> <!-- Ajout de la div pour afficher les stats des champions -->
+    </div>
     <script src="/app.js"></script>
 </body>
 

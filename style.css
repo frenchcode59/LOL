@@ -7,6 +7,7 @@ body{
 }
 #hero {
     position: relative;
+    margin-bottom: 150px;
   }
   
   .image-container {
@@ -45,4 +46,22 @@ body{
 .container {
     display: flex;
     flex-grow: 1;
+    margin-top: 100px;
+}
+#search{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+#filter{
+  width: 12%;
+  height: 30px;
+}
+#searchBar{
+  width: 20%;
+  height: 30px;
+}
+#champion_stats img{
+  width: 30%;
+  box-shadow: black 10px 20px 20px 20px;
 }
