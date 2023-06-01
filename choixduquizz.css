@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "LeagueOfLegends"; /* Nom que vous souhaitez attribuer à la police */
+    src: url("/typo/Spiegel-Bold.otf") format("truetype"); /* Chemin vers le fichier de police */
+  }
+  
+  @font-face {
+    font-family: "LeagueOfLegendsTitle"; /* Nom que vous souhaitez attribuer à la police */
+    src: url("/typo/BeaufortforLOL-Heavy.otf") format("truetype"); /* Chemin vers le fichier de police */
+  }
+  
+body{
+    background-color: rgb(44, 38, 38);
+}
+
+#hero_lol{
+    width: 100%;
+    }
+h1{
+       font-family: "LeagueOfLegendsTitle";
+       color: #C89B3C;
+       text-align: center;
+       font-size: 300px;
+    }
+a {
+        background-color: black;
+        margin: auto;
+        border: black 5px solid;
+        display: block; /* Ajout de cette ligne */
+        text-align: center; /* Ajout de cette ligne */
+        text-decoration: none;
+        font-family: "LeagueOfLegends";
+        color: #C89B3C;
+        font-size: 100px;
+        margin-bottom: 10px; /* Ajout de cette ligne pour ajouter un espace entre les liens */
+        width: 30%;
+        padding: 10px; /* Ajouter un padding pour créer de l'espace autour du texte */
+    
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+a:hover{
+        background-color: black;
+        color: white;
+        text-decoration: none;
+    }
+        
+    
