@@ -5,6 +5,7 @@ const champions_url =
   "http://ddragon.leagueoflegends.com/cdn/13.10.1/data/fr_FR/champion.json";
 let list_champions = [];
 const championsPerPage = 30;
+const searchInput = document.getElementById("searchBar");
 let currentPage = 1;
 let totalChampions;
 let startIndex; // Index de départ pour la page actuelle
@@ -55,11 +56,22 @@ function createPaginationButtons() {
   paginationElement.appendChild(nextButton);
 }
 
+searchInput.addEventListener("input", () => {
+  const searchTerm = searchInput.value.toLowerCase();
+  const filteredChampions = list_champions.filter((champion) =>
+    champion.name.toLowerCase().includes(searchTerm)
+  );
+  totalChampions = filteredChampions.length;
+  currentPage = 1;
+  updateVisibleChampions(filteredChampions);
+  createPaginationButtons();
+});
+
 // Fonction pour mettre à jour les champions visibles en fonction de la page actuelle
-function updateVisibleChampions() {
+function updateVisibleChampions(champions = list_champions) {
   startIndex = (currentPage - 1) * championsPerPage;
   endIndex = startIndex + championsPerPage;
-  visibleChampions = list_champions.slice(startIndex, endIndex);
+  visibleChampions = champions.slice(startIndex, endIndex);
   renderVisibleChampions();
 }
 
