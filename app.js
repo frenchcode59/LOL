@@ -1,4 +1,4 @@
-// Je crée mes constantes et mes variables
+// Je crée mes constantes et mes variables et recupére mes elements du dom 
 
 const gridElement = document.getElementById("grid");
 const championStatsElement = document.getElementById("champion_stats");
@@ -47,6 +47,7 @@ function createPaginationButtons() {
   });
   paginationElement.appendChild(previousButton);
 
+  //je cree le bouton suivant de la pagination 
   const nextButton = document.createElement("button");
   nextButton.innerText = "Suivant";
   nextButton.addEventListener("click", () => {
@@ -58,6 +59,7 @@ function createPaginationButtons() {
   });
   paginationElement.appendChild(nextButton);
 }
+//je cree l'interaction avec ma barre de recherche 
 
 searchInput.addEventListener("input", () => {
   const searchTerm = searchInput.value.toLowerCase();
@@ -70,13 +72,15 @@ searchInput.addEventListener("input", () => {
   createPaginationButtons();
 });
 
+//je cree une fonction me permettant de faire des recherches par nom 
+ 
 function updateVisibleChampions(champions = list_champions) {
   startIndex = (currentPage - 1) * championsPerPage;
   endIndex = startIndex + championsPerPage;
   visibleChampions = champions.slice(startIndex, endIndex);
   fetchChampionDetails();
 }
-
+//je fetch les details des champions 
 function fetchChampionDetails() {
   const championDetailsPromises = visibleChampions.map((champion) => {
     const championDetailsUrl = `http://ddragon.leagueoflegends.com/cdn/13.10.1/data/fr_FR/champion/${champion.id}.json`;
@@ -98,10 +102,11 @@ function fetchChampionDetails() {
       );
     });
 }
-
+//j'affiche mes champions dans la grille 
 function renderVisibleChampions() {
   gridElement.innerHTML = "";
 
+  //boucle afin de remplir ma grille 
   visibleChampions.forEach((champion) => {
     const championItem = document.createElement("div");
     championItem.classList.add("champion-item");
