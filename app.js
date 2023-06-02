@@ -1,4 +1,5 @@
-// Je crée mes constantes que j'utiliserai dans mon code
+// Je cree mes constante et mes variables 
+
 const gridElement = document.getElementById("grid");
 const championStatsElement = document.getElementById("champion_stats");
 const champions_url =
@@ -8,11 +9,12 @@ const championsPerPage = 30;
 const searchInput = document.getElementById("searchBar");
 let currentPage = 1;
 let totalChampions;
-let startIndex; // Index de départ pour la page actuelle
-let endIndex; // Index de fin pour la page actuelle
+let startIndex;
+let endIndex;
 let visibleChampions;
 
-// Je fetch l'URL de l'API afin de récupérer la photo et les informations des champions
+//je fetch l'url pour recuperer l'image de mes champions et les transforme en format JSON
+
 fetch(champions_url)
   .then((response) => response.json())
   .then((data) => {
@@ -29,7 +31,8 @@ fetch(champions_url)
     );
   });
 
-// Fonction pour créer les boutons de pagination
+  //je cree une fonction avec des boutons me permettant de naviguer entre les champions 
+
 function createPaginationButtons() {
   const paginationElement = document.getElementById("pagination");
   paginationElement.innerHTML = "";
@@ -67,15 +70,34 @@ searchInput.addEventListener("input", () => {
   createPaginationButtons();
 });
 
-// Fonction pour mettre à jour les champions visibles en fonction de la page actuelle
 function updateVisibleChampions(champions = list_champions) {
   startIndex = (currentPage - 1) * championsPerPage;
   endIndex = startIndex + championsPerPage;
   visibleChampions = champions.slice(startIndex, endIndex);
-  renderVisibleChampions();
+  fetchChampionDetails();
 }
 
-// Fonction pour afficher les champions visibles dans la grille
+function fetchChampionDetails() {
+  const championDetailsPromises = visibleChampions.map((champion) => {
+    const championDetailsUrl = `http://ddragon.leagueoflegends.com/cdn/13.10.1/data/fr_FR/champion/${champion.id}.json`;
+    return fetch(championDetailsUrl).then((response) => response.json());
+  });
+
+  Promise.all(championDetailsPromises)
+    .then((championDetails) => {
+      visibleChampions.forEach((champion, index) => {
+        champion.presentation = championDetails[index].data[champion.id].blurb;
+      });
+      renderVisibleChampions();
+    })
+    .catch((error) => {
+      console.error(
+        "Une erreur s'est produite lors de la récupération des détails des champions :",
+        error
+      );
+    });
+}
+
 function renderVisibleChampions() {
   gridElement.innerHTML = "";
 
@@ -94,19 +116,20 @@ function renderVisibleChampions() {
     gridElement.appendChild(championItem);
 
     championImage.addEventListener("click", () => {
-      // Efface le contenu précédent de l'écran des statistiques du champion
       championStatsElement.innerHTML = "";
 
-      // Crée les éléments pour afficher les détails du champion
       const championTitle = document.createElement("h2");
       championTitle.innerText = champion.name;
 
       const championImageCopy = document.createElement("img");
       championImageCopy.src = championImage.src;
 
-      // Ajoute les éléments à l'écran des statistiques du champion
+      const championPresentation = document.createElement("p");
+      championPresentation.innerText = champion.presentation;
+
       championStatsElement.appendChild(championTitle);
       championStatsElement.appendChild(championImageCopy);
+      championStatsElement.appendChild(championPresentation);
     });
   });
 }
