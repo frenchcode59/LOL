@@ -1,4 +1,4 @@
-// Je cree mes constante et mes variables 
+// Je crée mes constantes et mes variables
 
 const gridElement = document.getElementById("grid");
 const championStatsElement = document.getElementById("champion_stats");
@@ -13,7 +13,7 @@ let startIndex;
 let endIndex;
 let visibleChampions;
 
-//je fetch l'url pour recuperer l'image de mes champions et les transforme en format JSON
+// Je fetch l'URL pour récupérer les images des champions et les transformer en format JSON
 
 fetch(champions_url)
   .then((response) => response.json())
@@ -31,7 +31,7 @@ fetch(champions_url)
     );
   });
 
-  //je cree une fonction avec des boutons me permettant de naviguer entre les champions 
+// Je crée une fonction avec des boutons me permettant de naviguer entre les champions
 
 function createPaginationButtons() {
   const paginationElement = document.getElementById("pagination");
@@ -87,6 +87,7 @@ function fetchChampionDetails() {
     .then((championDetails) => {
       visibleChampions.forEach((champion, index) => {
         champion.presentation = championDetails[index].data[champion.id].blurb;
+        champion.stats = championDetails[index].data[champion.id].stats;
       });
       renderVisibleChampions();
     })
@@ -115,7 +116,7 @@ function renderVisibleChampions() {
     championItem.appendChild(championName);
     gridElement.appendChild(championItem);
 
-    championImage.addEventListener("click", () => {
+    championItem.addEventListener("click", () => {
       championStatsElement.innerHTML = "";
 
       const championTitle = document.createElement("h2");
@@ -127,9 +128,43 @@ function renderVisibleChampions() {
       const championPresentation = document.createElement("p");
       championPresentation.innerText = champion.presentation;
 
+      const championStats = document.createElement("div");
+      championStats.classList.add("champion-stats");
+
+      const statsCanvas = document.createElement("canvas");
+      statsCanvas.id = "statsChart";
+
       championStatsElement.appendChild(championTitle);
       championStatsElement.appendChild(championImageCopy);
       championStatsElement.appendChild(championPresentation);
+      championStatsElement.appendChild(championStats);
+      championStatsElement.appendChild(statsCanvas);
+
+      const statsLabels = Object.keys(champion.stats);
+      const statsValues = Object.values(champion.stats);
+
+      new Chart(statsCanvas, {
+        type: "bar",
+        data: {
+          labels: statsLabels,
+          datasets: [
+            {
+              label: "Stats",
+              data: statsValues,
+              backgroundColor: "black",
+              borderColor: "rgba(75, 192, 192, 1)",
+              borderWidth: 1
+            }
+          ]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
     });
   });
 }

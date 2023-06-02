@@ -16,8 +16,7 @@
         <button id="start_quizz">Demarrer le quizz</button>
     </section>
     <div id="search">
-        <select name="filtre" id="filter">
-            <option value="normal">None</option>
+
         </select>
         <label for="searchBar"></label>
         <input type="text" id="searchBar" placeholder="recherchez votre champion...">
@@ -25,10 +24,13 @@
     <div class="container">
         <div id="grid"></div>
 
-        <div id="champion_stats"></div> <!-- Ajout de la div pour afficher les stats des champions -->
+        <div id="champion_stats">
+            <canvas id="championStatsChart"></canvas>
+        </div> <!-- Ajout de la div pour afficher les stats des champions -->
     </div>
     <div id="pagination" class="pagination"></div>
     <script src="/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
