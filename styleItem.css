@@ -1,0 +1,94 @@
+body{
+    background-color: rgb(44, 38, 38);
+}
+#hero_lol{
+    width: 100%;
+    height: px;
+}
+#hero {
+    position: relative;
+    margin-bottom: 150px;
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #start_quizz {
+    position: absolute;
+    bottom: 200px;
+   right: 43%;
+   top: 45%;
+    width: 15%;
+    height: 50px;
+    background-color: rgb(16, 16, 214);
+    color: white;
+    font-size: 25px;
+    border-radius: 30px;
+  }
+  #grid-deux{
+    width: 40%;
+    margin:40px ;
+  display: grid;
+  grid-template-columns: repeat( 5,1fr) ;
+  gap: 20px;
+}
+#items_stats{ 
+margin-top: 170px;
+width: 35%; /* Largeur de l'écran des stats des champions */
+height: 600px;
+background-color: rgb(54, 48, 48);
+color: black;
+padding: 150px;
+border-radius: 10px;
+margin-right: 50px;
+}
+#cotainer_deux {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    margin-top: 100px;
+  }
+.item img {
+    
+    width: 100px;
+} 
+div{
+    color: white;
+}
+#pagination {
+    width: 47%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#pagination button {
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+    background-color: rgb(26, 26, 180);
+    color: white;
+}
+#items_stats img{
+width: 150px;
+}
+  img:hover #items_stats{
+    cursor: zoom-out;
+}
+.item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .item:hover {
+    transform: scale(1.1);
+  }
+  #searchBar{
+    display: flex;
+    margin: auto;
+    width: 30%;
+    height: 30px;
+  }

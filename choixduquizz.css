@@ -19,7 +19,7 @@ h1{
        font-family: "LeagueOfLegendsTitle";
        color: #C89B3C;
        text-align: center;
-       font-size: 300px;
+       font-size: 100px;
     }
 a {
         background-color: black;
@@ -30,7 +30,7 @@ a {
         text-decoration: none;
         font-family: "LeagueOfLegends";
         color: #C89B3C;
-        font-size: 100px;
+        font-size: 70px;
         margin-bottom: 10px; /* Ajout de cette ligne pour ajouter un espace entre les liens */
         width: 30%;
         padding: 10px; /* Ajouter un padding pour créer de l'espace autour du texte */
