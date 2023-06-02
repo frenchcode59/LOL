@@ -1,32 +1,35 @@
-# LOL
 League of Legends Quizz
-
-Ce projet est une application de quizz basée sur l'API de League of Legends pour les développeurs. L'objectif est de créer un quizz interactif avec plusieurs modes de jeu, mettant en vedette les champions, les compétences et les items de League of Legends. Les joueurs devront deviner les bonnes réponses en se basant sur des images et un nombre limité d'essais.
-
+Ce projet est une application de quizz basée sur l'API de League of Legends. L'objectif est de créer un jeu qui propose plusieurs modes de jeu, notamment un mode champion, un mode compétence et un mode items. L'application permettra également d'afficher des listes de champions, de compétences et d'items de League of Legends.
+PROJET EN CONSTRUCTION
 Fonctionnalités
-
-Listage des champions : Affiche tous les champions de League of Legends avec leurs détails, y compris la photo, les compétences et les statistiques dans un graphique. Possibilité de recherche par nom, nom de compétence, lore, etc. et utilisation de filtres.
-
-Listage des compétences : Affiche toutes les compétences du jeu. Au clic sur une compétence, affiche sa description et une image.
-
-Listage des items : Affiche tous les items de League of Legends avec leurs statistiques et une image.
-
-Mode champion : Propose un formulaire avec un champ de recherche et un temps imparti pour répondre. Affiche des informations à chaque essai pour indiquer la proximité de la bonne réponse (année de sortie, lore, sexe, etc.).
-
-Mode compétence : Fonctionne de manière similaire au mode champion, mais avec les compétences. Adaptation des informations affichées à chaque essai.
-
-Mode items : Mode similaire aux modes champion et compétence, mais avec les items.
-
-Score : Chaque mode de jeu comprend un système de score qui s'incrémente lorsque la bonne réponse est trouvée. Le joueur dispose de 7 essais avant de perdre la partie. Maquettes Des maquettes complètes du site seront créées pour définir le design et les couleurs. Le choix final du design sera discuté avec le client. Des propositions de maquettes seront présentées pour validation.
+Listage des champions
+Affiche tous les personnages de League of Legends.
+Permet de cliquer sur un champion pour afficher sa photo, ses compétences et ses statistiques dans un graphique.
+Fournit des fonctionnalités de recherche par nom, nom de compétence, etc.
+Permet d'appliquer des filtres pour affiner la liste des champions.
+Listage des compétences
+Affiche toutes les compétences de League of Legends.
+Au clic sur une compétence, affiche une description détaillée et une image correspondante.
+Listage des items
+Affiche tous les items de League of Legends.
+Pour chaque item, affiche ses statistiques et une image correspondante.
+Mode champion
+Propose un formulaire avec un champ et un temps imparti pour répondre.
+Affiche des informations à chaque essai pour indiquer si la réponse est proche ou loin du champion généré aléatoirement.
+Les informations peuvent inclure l'année de sortie, le lore, le sexe, etc.
+Compte le score du joueur et l'incrémente à chaque bonne réponse.
+Permet 7 essais avant de perdre la partie.
+Mode compétence et mode items
+Fonctionnent de manière similaire au mode champion, mais adaptés aux compétences et aux items.
+Maquettes
+Vous trouverez les maquettes complètes du site ici.https://www.figma.com/file/SBx8k1Bazrqu6l5cCCaob2/Untitled?type=design&node-id=0-1&t=b3z0UGcLXhUO7csS-0
 
 Gestion de projet
-
-Utilisation de l'outil de planification Trello pour gérer le projet de manière complète. Utilisation de Git avec des branches pour organiser les fonctionnalités du projet. Respect de la charte de développeur transmise.
+Nous utilisons l'outil de planification Trello pour gérer le projet. Vous pouvez y accéder ici.https://trello.com/b/DYvMcuVx/league-of-legend
 
 Contraintes
-
-Langages : HTML, CSS, JavaScript Utilisation de l'API de League of Legends pour récupérer les données nécessaires. Le projet se fait seul, mais de nouvelles idées du client peuvent être ajoutées en cours de route.
-
-Installation et exécution 1 - Clonez ce dépôt de projet 2 - Naviguez dans le répertoire du projet 3 -Ouvrez le fichier index.html dans votre navigateur web préféré.
-
-Toute contribution pour améliorer ce projet est la bienvenue ! Si vous avez des suggestions d'amélioration, des idées de nouvelles fonctionnalités ou des rapports de bugs, n'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+Langages : HTML, CSS, JS
+API : API de League of Legends
+Gestion de version : Git avec des branches organisées par fonctionnalité
+Respect de la charte de développeur transmise
+N'hésitez pas à me contacter pour toute question ou demande d'ajout d'une nouvelle fonctionnalité.
